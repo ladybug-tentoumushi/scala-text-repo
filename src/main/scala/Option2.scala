@@ -10,3 +10,4 @@ class Option2 {
     i3 <- v3
     i4 <- v4
     i5 <- v5 } yield i1 * i2 * i3 * i4 * i5 
+}
