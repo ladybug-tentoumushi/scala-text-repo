@@ -3,7 +3,7 @@ import scala.concurrent.ExecutionContext.Implicits.global //並行処理する�
 //*Futureを作成する（非同期処理を実行する）にはconcurrent.Futureをインポートする必要がある。
 //Futureを使用するにはExecutionContextをインポートする必要がある。
 
-object FutureSample {
+object FutureSample1 {
 
   def main(args: Array[String]): Unit = {
     val s = "Hello"                                       //変数sにHelloを代入
@@ -12,7 +12,7 @@ object FutureSample {
       s + "future!"                                       //文字列s + future!を返す（メソッドの最後に書かれた処理が戻り値になる（Futureの戻り値＝文字列s + future!））
     }
 
-    f.foreach { s =>                                      //f(Future)が終了したら呼び出されるメソッド（コールバック関数）
+    f.foreach { s =>                                      //foreach = f(Future)が終了したら呼び出されるメソッド（コールバック関数）を受け取る
       println(s)                                          //処理の結果が返って来るだけなので、defやvalは必要ない
     }
 
