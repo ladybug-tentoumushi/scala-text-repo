@@ -2,7 +2,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.util.{Failure, Success, Random}
 
-object FutureSample3 {
+object CompositeFutureSample {
   val random = new Random()       //randomという名前の変数を定義。scala.util.Randomオブジェクト
   val waitMaxMillSec = 3000       //waitMaxという名前の変数を定義。待ち時間の上限を表す整数
 
@@ -20,7 +20,13 @@ object FutureSample3 {
     val compositeFuture: Future[(Int, Int)] = for {
       first <- futureFirst
       second <- futureSecond
-    } yield()
-  }
+    } yield(first, second)
 
+    compositeFuture onComplete  {
+      case Success((first, second)) => println(s"Success! first:${first} second:${second}")
+      case Failure(t) => println(s"Failure: ${t.getMessage}")
+    }
+
+    Thread.sleep(5000)
+  }
 }
