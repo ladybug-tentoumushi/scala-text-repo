@@ -15,16 +15,16 @@ object GetNews {
     val nhkNews: Future[List[News]] = Future {getNhkNews(word) }
     val googleNews: Future[List[News]] = Future {getSearchGoogleNews(word) }
 
-    val compositeNews: Future[(List[News], List[News])] = for {
+    val compositeNews: Future[List[News]]= for {
       nhk <- nhkNews
       google <- googleNews
-    } yield (nhk, google)
+    } yield (nhk:::google)
 
-    val allNews: Future[List[News]] = compositeNews.map{
-      case (nhk, google) => nhk:::google
-    }
+    //val allNews: Future[List[News]] = compositeNews.map{
+      //case (nhk, google) => nhk:::google
+    //}
 
-    allNews.onComplete {
+    compositeNews.onComplete {
       case Success((allnews)) => println(s"$allnews")
       case Failure(t) => println(t.getMessage)
     }
