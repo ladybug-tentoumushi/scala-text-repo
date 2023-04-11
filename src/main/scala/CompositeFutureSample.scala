@@ -1,6 +1,6 @@
-import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import scala.util.{Failure, Success, Random}
+import scala.util.{Failure, Random, Success}
+import scala.concurrent.ExecutionContext.Implicits.global
 
 object CompositeFutureSample {
   val random = new Random()       //randomという名前の変数を定義。scala.util.Randomオブジェクト

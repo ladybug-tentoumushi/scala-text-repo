@@ -1,3 +1,5 @@
+package ScalaText
+
 object BinaryTree {                   //クラス内で定義されたメソッドはクラスのインスタンスを作成しなければ呼び出すことができないので、Objectにする。
 
   sealed abstract class Tree
