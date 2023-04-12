@@ -4,7 +4,7 @@ import scala.io.StdIn.readLine
 object Main extends App {
     val t = readLine()
     val p = readLine()
-    val matchIndexes = println(search(t, p))
+    search(t, p).foreach(println)
 
   def search(t:String, p:String): Seq[Int] = {
     var matchIndexes = Seq[Int]()
@@ -14,7 +14,7 @@ object Main extends App {
       if (partText == p) {
         matchIndexes :+= i
       }
-      }
+    }
      matchIndexes
   }
 }
