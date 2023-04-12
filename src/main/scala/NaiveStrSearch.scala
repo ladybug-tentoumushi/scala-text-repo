@@ -7,14 +7,9 @@ object NaiveStrSearch extends App {
   search(t, p).foreach(println)
 
   def search(t:String, p:String): Seq[Int] = {
-    var matchIndexes = Seq[Int]()
-
-    for (i <- 0 to t.length - p.length) {
+    (0 to t.length - p.length).flatMap { i =>
       val partText = t.slice(i, i + p.length)
-      if (partText == p) {
-        matchIndexes :+= i
+      if (partText == p) Some(i) else None
       }
     }
-    matchIndexes
-  }
 }
