@@ -1,10 +1,10 @@
 //ALDS1_14_A
 import scala.io.StdIn.readLine
 
-object Main extends App {
-    val t = readLine()
-    val p = readLine()
-    search(t, p).foreach(println)
+object NaiveStrSearch extends App {
+  val t = readLine()
+  val p = readLine()
+  search(t, p).foreach(println)
 
   def search(t:String, p:String): Seq[Int] = {
     var matchIndexes = Seq[Int]()
@@ -15,6 +15,6 @@ object Main extends App {
         matchIndexes :+= i
       }
     }
-     matchIndexes
+    matchIndexes
   }
 }
