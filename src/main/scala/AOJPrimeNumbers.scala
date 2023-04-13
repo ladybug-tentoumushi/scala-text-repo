@@ -1,5 +1,4 @@
 //ALDS1_1_C
-import org.graalvm.compiler.graph.Node.Input
 
 import scala.io.StdIn.readLine
 
