@@ -1,7 +1,7 @@
 //ALDS1_2_A
 import scala.io.StdIn.readLine
 
-object Main extends App {
+object AOJBubbleSort extends App {
   val n: Int = readLine().toInt
   val nums: Array[Int] = readLine.split(" ").map(_.toInt)
 
